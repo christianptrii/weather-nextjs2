@@ -4,6 +4,93 @@ import { WiDaySunny, WiRain, WiCloudy, WiSnow, WiThunderstorm } from 'react-icon
 import { FaNewspaper } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const styles = `
+  body {
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.1' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .cloud-1 {
+    width: 100px;
+    height: 40px;
+    top: 10%;
+    left: 10%;
+    animation: float 30s linear infinite;
+  }
+
+  .cloud-1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+  }
+
+  .cloud-1::after {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    right: 10px;
+  }
+
+  .cloud-2 {
+    width: 120px;
+    height: 48px;
+    top: 30%;
+    right: 15%;
+    animation: float 25s linear infinite reverse;
+  }
+
+  .cloud-2::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 12px;
+  }
+
+  .cloud-2::after {
+    width: 84px;
+    height: 84px;
+    top: -42px;
+    right: 12px;
+  }
+
+  @keyframes float {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+  }
+`;
+
 const WeatherIcon = ({ condition }) => {
   switch (condition.toLowerCase()) {
     case 'sunny':
@@ -68,6 +155,9 @@ export default function Home() {
 
   return (
     <>
+      <style>{styles}</style>
+      <div className="cloud cloud-1"></div>
+      <div className="cloud cloud-2"></div>
       <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
         <Container>
           <Navbar.Brand href="#home">WeatherApp</Navbar.Brand>
@@ -85,7 +175,7 @@ export default function Home() {
       <Container className="mb-5">
         <Row className="justify-content-center">
           <Col md={8} lg={6}>
-            <Card className="shadow-lg border-0 rounded-lg">
+            <Card className="shadow-lg border-0 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
               <Card.Body className="p-5">
                 <h1 className="text-center mb-4 text-primary">Weather Forecast</h1>
                 <Form onSubmit={fetchWeather}>
@@ -144,7 +234,7 @@ export default function Home() {
 
         <Row className="mt-5">
           <Col>
-            <Card className="shadow-lg border-0 rounded-lg">
+            <Card className="shadow-lg border-0 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
               <Card.Body>
                 <h2 className="text-center mb-4">Weather Articles</h2>
                 <Dropdown className="mb-3">
