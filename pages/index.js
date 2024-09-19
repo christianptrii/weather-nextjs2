@@ -22,6 +22,14 @@ const WeatherIcon = ({ condition }) => {
   }
 };
 
+const getTemperatureMessage = (temp) => {
+  if (temp < 0) return "Sangat dingin! Pastikan Anda berpakaian hangat.";
+  if (temp < 10) return "Cuaca dingin. Sebaiknya pakai jaket.";
+  if (temp < 20) return "Cuaca sejuk. Nyaman untuk beraktivitas di luar.";
+  if (temp < 30) return "Cuaca hangat. Jangan lupa minum cukup air.";
+  return "Cuaca panas! Hindari terlalu lama di bawah sinar matahari.";
+};
+
 export default function Home() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
@@ -89,6 +97,7 @@ export default function Home() {
                       <div className="mt-4">
                         <h1 className="display-3 mb-0">{weather.current.temp_c}°C</h1>
                         <p className="lead">{weather.current.condition.text}</p>
+                        <p>{getTemperatureMessage(weather.current.temp_c)}</p>
                       </div>
                       <Row className="mt-4 text-center">
                         <Col>
